@@ -1,0 +1,872 @@
+{
+	"alfresco config": {
+		"prefix": "alfresco config",
+		"body": "\r\n<alfresco-config>\r\n\t\r\n</alfresco-config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"Á": {
+		"prefix": "Á",
+		"body": "\\u00c1",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"association person": {
+		"prefix": "association person",
+		"body": "\r\n<association name=\"$1:$2\">\r\n   <title>Title</title>\r\n   <source>\r\n      <mandatory>false</mandatory>\r\n      <many>true</many>\r\n   </source>\r\n   <target>\r\n      <class>cm:person</class>\r\n      <mandatory>false</mandatory>\r\n      <many>false</many>\r\n   </target>\r\n</association>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"association content": {
+		"prefix": "association content",
+		"body": "\r\n<association name=\"$1:$2\">\r\n   <title>Title</title>\r\n   <source>\r\n      <mandatory>false</mandatory>\r\n      <many>true</many>\r\n   </source>\r\n   <target>\r\n      <class>cm:content</class>\r\n      <mandatory>false</mandatory>\r\n      <many>false</many>\r\n   </target>\r\n</association>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"associations": {
+		"prefix": "associations",
+		"body": "\r\n<associations>\r\n\t\r\n</associations>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"á": {
+		"prefix": "á",
+		"body": "\\u00e1",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"child association": {
+		"prefix": "child association",
+		"body": "\r\n<child-association name=\"$1:$2\">\r\n   <source>\r\n\t  <mandatory>false</mandatory>\r\n\t  <many>false</many>\r\n   </source>\r\n   <target>\r\n\t  <class>cm:folder</class>\r\n\t  <mandatory enforced=\"true\">true</mandatory>\r\n\t  <many>false</many>\r\n   </target>\r\n   <duplicate>false</duplicate>\r\n</child-association>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"cm-authority": {
+		"prefix": "cm-authority",
+		"body": "cm:authority",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-authorityContainer": {
+		"prefix": "cm-authorityContainer",
+		"body": "cm:authorityContainer",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-category": {
+		"prefix": "cm-category",
+		"body": "cm:category",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-category_root": {
+		"prefix": "cm-category_root",
+		"body": "cm:category_root",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-content": {
+		"prefix": "cm-content",
+		"body": "cm:content",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-dictionaryModel": {
+		"prefix": "cm-dictionaryModel",
+		"body": "cm:dictionaryModel",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-failedThumbnail": {
+		"prefix": "cm-failedThumbnail",
+		"body": "cm:failedThumbnail",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-folder": {
+		"prefix": "cm-folder",
+		"body": "cm:folder",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-link": {
+		"prefix": "cm-link",
+		"body": "cm:link",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-mlContainer": {
+		"prefix": "cm-mlContainer",
+		"body": "cm:mlContainer",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-mlRoot": {
+		"prefix": "cm-mlRoot",
+		"body": "cm:mlRoot",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-cmobject": {
+		"prefix": "cm-cmobject",
+		"body": "cm:cmobject",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-person": {
+		"prefix": "cm-person",
+		"body": "cm:person",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-rating": {
+		"prefix": "cm-rating",
+		"body": "cm:rating",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-savedquery": {
+		"prefix": "cm-savedquery",
+		"body": "cm:savedquery",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-systemfolder": {
+		"prefix": "cm-systemfolder",
+		"body": "cm:systemfolder",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"cm-zone": {
+		"prefix": "cm-zone",
+		"body": "cm:zone",
+		"description": "Content Model",
+		"scope": ""
+	},
+	"config actions": {
+		"prefix": "config actions",
+		"body": "\r\n<config evaluator=\"string-compare\" condition=\"DocLibActions\">\r\n\t<actions>\r\n\t\t<!-- type=\"javascript\" -->\r\n\t\t<action id=\"add-element\" icon=\"add-element\" type=\"javascript\" label=\"label.action.add-element\">\r\n\t\t\t<param name=\"function\">onActionFormDialog</param>\r\n\t\t\t<param name=\"itemKind\">action</param>\r\n\t\t\t<param name=\"itemId\">add-element</param>\r\n\t\t\t<param name=\"mode\">create</param>\r\n\t\t\t<param name=\"destination\">{node.nodeRef}</param>\r\n\t\t\t<param name=\"successMessage\">message.add-element.success</param>\r\n\t\t\t<param name=\"failureMessage\">message.add-element.failure</param>\r\n\t\t</action>\r\n\t\t<!--  type=\"pagelink\"  -->\r\n\t\t<action id=\"manage-element\" type=\"pagelink\" icon=\"manage-element\" label=\"label.actions.manage-element\">\r\n            <param name=\"page\">manage-element?nodeRef={node.nodeRef}</param>\r\n         </action>\r\n         <!--  type=\"link\"  -->\r\n\t\t<action id=\"manage-element\" type=\"link\" icon=\"manage-element\" label=\"label.actions.manage-element\">\r\n            <param name=\"page\">manage-element?nodeRef={node.nodeRef}</param>\r\n         </action>\r\n\t</actions>\r\n\t<actionGroups>\r\n\t\t<actionGroup id=\"document-browse\">\r\n\t\t\t<action index=\"110\" id=\"add-element\"/>\r\n\t\t\t<action index=\"110\" id=\"manage-element\"/>\r\n\t\t\t</actionGroup>\r\n\t\t<actionGroup id=\"document-details\">\r\n\t\t\t<action index=\"110\" id=\"add-element\"/>\r\n\t\t\t<action index=\"110\" id=\"manage-element\"/>\r\n\t\t</actionGroup>\r\n\t\t<actionGroup id=\"folder-browse\">\r\n\t\t\t<action index=\"102\" id=\"add-element\"/>\r\n\t\t\t<action index=\"125\" id=\"manage-element\"/>\r\n\t\t</actionGroup>\r\n\t\t<actionGroup id=\"folder-details\">\r\n\t\t\t<action index=\"102\" id=\"add-element\"/>\r\n\t\t\t<action index=\"125\" id=\"manage-element\"/>\r\n\t\t</actionGroup>\r\n\t</actionGroups>\r\n</config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"config aspects": {
+		"prefix": "config aspects",
+		"body": "\r\n<config evaluator=\"string-compare\" condition=\"DocumentLibrary\">\r\n  <aspects>   \r\n   <visible>\r\n       <aspect name=\"$1:$2\" />       \r\n   </visible>\r\n\r\n   <addable>\r\n   </addable>\r\n   \r\n   <removeable>\r\n   </removeable>\r\n  </aspects>\r\n</config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"config create-content": {
+		"prefix": "config create-content",
+		"body": "\r\n<config evaluator=\"string-compare\" condition=\"DocumentLibrary\">\r\n  <create-content>         \r\n    <content id=\"$1\" label=\"$2\" type=\"pagelink\" index=\"10\" icon=\"text\">\r\n      <param name=\"page\">create-content?destination={nodeRef}&amp;itemId=prefix:model&amp;mimeType=text/plain</param>\r\n    </content>\r\n  </create-content>\r\n</config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"config forms": {
+		"prefix": "config forms",
+		"body": "\r\n<config>\r\n   <forms>\r\n      <default-controls>\r\n         <type name=\"type\" template=\"path\">\r\n            <control-param name=\"name\">value</control-param>\r\n         </type>\r\n      </default-controls>\r\n\r\n      <constraint-handlers>\r\n         <constraint type=\"id\" validation-handler=\"function\" [message-id=\"key\"] [message=\"string\"] [event=\"string\"] />\r\n      </constraint-handlers>\r\n\r\n      <dependencies>\r\n         <js src=\"path\" />\r\n         <css src=\"path\" />\r\n      </dependencies>\r\n   </forms>\r\n</config>\r\n\r\n<config evaluator=\"node-type\" condition=\"type\">\r\n   <forms>\r\n      <form [id=\"string\"] [submission-url=\"url\"]>\r\n         <view-form template=\"path\" />\r\n         <edit-form template=\"path\" />\r\n         <create-form template=\"path\" />\r\n         <field-visibility>\r\n            <show id=\"string\" [for-mode=\"view|edit|create\"] [force=\"boolean\"] />\r\n            <hide id=\"string\" [for-mode=\"view|edit|create\"] />\r\n         </field-visibility>\r\n         <appearance>\r\n            <set id=\"string\" appearance=\"fieldset|panel|bordered-panel|title|whitespace|\" [parent=\"string\"] [label=\"string\"] [label-id=\"key\"] [template=\"path\"] />\r\n\r\n            <field id=\"string\" [label-id=\"key\"] [label=\"string\"] [description-id=\"key\"] [description=\"string\"]\r\n                   [help=\"string\"] [help-id=\"key\"] [read-only=\"boolean\"] [mandatory=\"boolean\"] [set=\"string\"]>\r\n               <control [template=\"path\"]>\r\n                  <control-param name=\"name\">value</control-param>\r\n               </control>\r\n               <constraint-handlers>\r\n                  <constraint type=\"id\" validation-handler=\"function\" [message-id=\"string\"] [message=\"string\"] [event=\"string\"] />\r\n               </constraint-handlers>\r\n            </field>\r\n         </appearance>\r\n      </form>\r\n   </forms>\r\n</config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"config types": {
+		"prefix": "config types",
+		"body": "\r\n<config evaluator=\"string-compare\" condition=\"DocumentLibrary\">\r\n  <types>\r\n     <type name=\"cm:content\">\r\n         <subtype name=\"$1:$2\" />         \r\n     </type>     \r\n </types>\r\n</config>",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"constraint handlers": {
+		"prefix": "constraint handlers",
+		"body": "\r\n<constraint-handlers>\r\n   <constraint type=\"MANDATORY\" validation-handler=\"Alfresco.forms.validation.mandatory\" event=\"keyup\" [message-id=\"key\"] [message=\"string\"]/>\r\n</constraint-handlers>\r\n  ",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"constraint List": {
+		"prefix": "constraint List",
+		"body": "\r\n<constraint name=\"$1:$2\" type=\"LIST\">\r\n\t<parameter name=\"allowedValues\">\r\n\t\t<list>\r\n\t\t\t<value>1</value>\r\n\t\t\t<value>2</value>\r\n\t\t\t<value>3</value>\r\n\t\t</list>\r\n\t</parameter>\r\n</constraint>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"constraint MINMAX": {
+		"prefix": "constraint MINMAX",
+		"body": "\r\n<constraint name=\"$1:$2\" type=\"MINMAX\">\r\n <parameter name=\"minValue\">\r\n    <value>0</value>\r\n </parameter>\r\n <parameter name=\"maxValue\">\r\n    <value>100</value>\r\n </parameter>\r\n</constraint>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"constraint property type": {
+		"prefix": "constraint property type",
+		"body": "\r\n<constraints>\r\n  <constraint ref=\"$1:$2\" />\r\n</constraints>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"constraint REGEX": {
+		"prefix": "constraint REGEX",
+		"body": "\r\n<constraint name=\"$1:$2\" type=\"REGEX\">\r\n   <parameter name=\"expression\">\r\n      <value><![CDATA[(.*[\\\"\\*\\\\\\>\\<\\?\\/\\:\\|]+.*)|(.*[\\.]?.*[\\.]+$)|(.*[ ]+$)] ]></value>\r\n   </parameter>\r\n   <parameter name=\"requiresMatch\"><value>false</value></parameter>\r\n</constraint>\r\n",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"constraints": {
+		"prefix": "constraints",
+		"body": "\r\n<constraints>\r\n\t\r\n</constraints>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"model": {
+		"prefix": "model",
+		"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\r\n<model xmlns=\"http://www.alfresco.org/model/dictionary/1.0\" name=\"$1:model\">\r\n\t<description>$TM_FILENAME</description>\r\n\t<author>Oscar Daniel Torres Hdez : odtorres@uci.cu</author>\r\n\t<published>2016-03-18</published>\r\n\t<version>1.0</version>\r\n\t\r\n\t<imports>\r\n\t\t<import prefix=\"d\" uri=\"http://www.alfresco.org/model/dictionary/1.0\" />\r\n\t\t<import prefix=\"cm\" uri=\"http://www.alfresco.org/model/content/1.0\" />\r\n\t\t<import prefix=\"sys\" uri=\"http://www.alfresco.org/model/system/1.0\" />\r\n\t</imports>\r\n\r\n\t<namespaces>\r\n\t\t<namespace prefix=\"$1\" uri=\"http://www.org/v3.1/module/$2/model/1.0\" />\r\n\t</namespaces>\r\n\t\r\n\t<constraints>\r\n\t\t<constraint name=\"$1:x-list\" type=\"LIST\">\r\n\t\t\t<parameter name=\"allowedValues\">\r\n\t\t\t\t<list>\r\n\t\t\t\t\t<value>1</value>\r\n\t\t\t\t\t<value>2</value>\r\n\t\t\t\t\t<value>3</value>\r\n\t\t\t\t</list>\r\n\t\t\t</parameter>\r\n\t\t</constraint>\r\n\t</constraints>\r\n\r\n\t<types>\r\n\t\t<type name=\"$1:name\">\r\n\t\t\t<title>Title</title>\r\n\t\t\t<parent>cm:content</parent>\r\n\t\t\t<properties>\r\n\t\t\t\t<property name=\"$1:date\">\r\n\t\t\t\t\t<title>Date</title>\r\n\t\t\t\t\t<type>d:date</type>\r\n\t\t\t\t</property>\r\n\t\t\t\t<property name=\"$1:list\">\r\n\t\t\t\t\t<title>List</title>\r\n\t\t\t\t\t<type>d:text</type>\r\n\t\t\t\t\t<constraints>\r\n\t\t\t\t\t\t<constraint ref=\"$1:x-list\" />\r\n\t\t\t\t\t</constraints>\r\n\t\t\t\t</property>\r\n\t\t\t\t<property name=\"$1:text\">\r\n\t\t\t\t\t<title>Text</title>\r\n\t\t\t\t\t<type>d:text</type>\r\n\t\t\t\t</property>\t\t\t\t\r\n\t\t\t</properties>\r\n\t\t\t<mandatory-aspects>\r\n\t\t\t\t<aspect>cm:auditable</aspect>\r\n\t\t\t\t<aspect>cm:author</aspect>\r\n\t\t\t</mandatory-aspects>\r\n\t\t</type>\r\n\t</types>\r\n\t\r\n\t<aspects>\r\n\t\t<aspect name=\"$1:x-aspect\">\r\n\t\t\t\r\n\t\t</aspect>\r\n\t</aspects>\r\n</model>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"bean cron js": {
+		"prefix": "bean cron js",
+		"body": "\r\n<!-- Scheduled scripts --> \r\n    <bean id=\"$1\" class=\"org.springframework.scheduling.quartz.JobDetailBean\">\r\n        <property name=\"jobClass\">\r\n            <value>org.alfresco.repo.jscript.ExecuteScriptJob</value>\r\n        </property>\r\n        <property name=\"jobDataAsMap\">\r\n            <map>\r\n                <entry key=\"scriptLocation\">\r\n                    <bean class=\"org.alfresco.repo.jscript.ClasspathScriptLocation\">\r\n                     <constructor-arg>\r\n                        <value>alfresco/module/$2/script/scheduled/$3.js</value>\r\n                     </constructor-arg>\r\n                  </bean>\r\n                </entry>\r\n                <entry key=\"scriptService\">\r\n                    <ref bean=\"ScriptService\"/>\r\n                </entry>\r\n                <entry key=\"authenticationComponent\">\r\n                  <ref bean=\"authenticationComponent\"/>\r\n                </entry>\r\n            </map>\r\n        </property>\r\n    </bean>\r\n \r\n    <bean id=\"$4\" class=\"org.alfresco.util.CronTriggerBean\">\r\n        <property name=\"jobDetail\">\r\n            <ref bean=\"$1\" />\r\n        </property>\r\n        <property name=\"scheduler\">\r\n            <ref bean=\"schedulerFactory\" />\r\n        </property>\r\n        <property name=\"cronExpression\">\r\n            <!-- Execute @ 2:30 am every day -->\r\n            <value>0 * * * * ?</value>\r\n        </property>\r\n    </bean>   \r\n",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"property globalproperties": {
+		"prefix": "property globalproperties",
+		"body": "<property name=\"myName\" value=\"\\${name.my.value}\"/>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"bean jsService": {
+		"prefix": "bean jsService",
+		"body": "\r\n<bean id=\"$1\" class=\"org.mycode\" parent=\"baseJavaScriptExtension\">\r\n  <property name=\"extensionName\">\r\n      <value>myJSService</value>\r\n  </property>  \r\n</bean>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"bean model": {
+		"prefix": "bean model",
+		"body": "\r\n<!-- Registration of new models -->\r\n<bean id=\"$1\" parent=\"dictionaryModelBootstrap\" depends-on=\"dictionaryBootstrap\">\r\n    <property name=\"models\">\r\n        <list>\r\n            <value>alfresco/module/$2/model/$3.xml</value>\r\n        </list>\r\n    </property>\r\n</bean>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"bean resourceBundles": {
+		"prefix": "bean resourceBundles",
+		"body": "\r\n<!-- Registration of new resourceBundles -->\r\n<bean id=\"$1\" class=\"org.alfresco.web.app.ResourceBundleBootstrap\">\r\n  <property name=\"resourceBundles\">\r\n    <list>\r\n      <value>alfresco.module.$2.messages.$3</value>        \r\n    </list>\r\n  </property>\r\n</bean>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"bean workflow": {
+		"prefix": "bean workflow",
+		"body": "\r\n<!-- Registration of new workflow -->\r\n<bean id=\"$1\" parent=\"workflowDeployer\">\r\n    <property name=\"workflowDefinitions\">\r\n        <list>\r\n            <props>\r\n                <prop key=\"engineId\">activiti</prop>\r\n                <prop key=\"location\">alfresco/module/$2/workflows/$3.bpmn</prop>\r\n                <prop key=\"mimetype\">text/xml</prop>\r\n                <prop key=\"redeploy\">false</prop>\r\n            </props>            \r\n        </list>\r\n    </property>\r\n</bean>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"beans init": {
+		"prefix": "beans init",
+		"body": "\r\n<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>\r\n\r\n<beans>\r\n    \r\n</beans>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"props workflow": {
+		"prefix": "props workflow",
+		"body": "\r\n<props>\r\n    <prop key=\"engineId\">activiti</prop>\r\n    <prop key=\"location\">alfresco/module/$1/workflows/$2.bpmn</prop>\r\n    <prop key=\"mimetype\">text/xml</prop>\r\n    <prop key=\"redeploy\">false</prop>\r\n</props>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"value model": {
+		"prefix": "value model",
+		"body": "<value>alfresco/module/$1/model/$2.xml</value>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"value resource": {
+		"prefix": "value resource",
+		"body": "<value>alfresco.module.$1.messages.$2</value>",
+		"description": "-context.xml",
+		"scope": "text.xml"
+	},
+	"d-any": {
+		"prefix": "d-any",
+		"body": "d:any",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-assocref": {
+		"prefix": "d-assocref",
+		"body": "d:assocref",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-boolean": {
+		"prefix": "d-boolean",
+		"body": "d:boolean",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-category": {
+		"prefix": "d-category",
+		"body": "d:category",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-childassocref": {
+		"prefix": "d-childassocref",
+		"body": "d:childassocref",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-content": {
+		"prefix": "d-content",
+		"body": "d:content",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-date": {
+		"prefix": "d-date",
+		"body": "d:date",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-datetime": {
+		"prefix": "d-datetime",
+		"body": "d:datetime",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-double": {
+		"prefix": "d-double",
+		"body": "d:double",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"default controls": {
+		"prefix": "default controls",
+		"body": "\r\n<default-controls>\r\n   <type name=\"type\" template=\"path\">\r\n      <control-param name=\"name\">value</control-param>\r\n   </type>\r\n</default-controls>\r\n  ",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"d-encrypted": {
+		"prefix": "d-encrypted",
+		"body": "d:encrypted",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"forms dependencies": {
+		"prefix": "forms dependencies",
+		"body": "\r\n<dependencies>\r\n   <css src=\"/fdk/accordion/accordion.css\" />\r\n   <js src=\"/fdk/accordion/accordion-min.js\" />\r\n</dependencies>\r\n   ",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"description": {
+		"prefix": "description",
+		"body": "\r\n<description>description</description>\r\n<author>Author</author>\r\n<published>Date</published>\r\n<version>1.0</version>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"d-float": {
+		"prefix": "d-float",
+		"body": "d:float",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-int": {
+		"prefix": "d-int",
+		"body": "d:int",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-locale": {
+		"prefix": "d-locale",
+		"body": "d:locale",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-long": {
+		"prefix": "d-long",
+		"body": "d:long",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-mltext": {
+		"prefix": "d-mltext",
+		"body": "d:mltext",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-noderef": {
+		"prefix": "d-noderef",
+		"body": "d:noderef",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-path": {
+		"prefix": "d-path",
+		"body": "d:path",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-period": {
+		"prefix": "d-period",
+		"body": "d:period",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-qname": {
+		"prefix": "d-qname",
+		"body": "d:qname",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-text": {
+		"prefix": "d-text",
+		"body": "d:text",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"d-version": {
+		"prefix": "d-version",
+		"body": "d:version",
+		"description": "Data Type",
+		"scope": ""
+	},
+	"É": {
+		"prefix": "É",
+		"body": "\\u00c9",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"é": {
+		"prefix": "é",
+		"body": "\\u00e9",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"field date": {
+		"prefix": "field date",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/date.ftl\">\r\n\t\t<control-param name=\"style\">width:380px</control-param>\r\n\t</control>\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field mimetype": {
+		"prefix": "field mimetype",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/mimetype.ftl\" />\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field selectmany": {
+		"prefix": "field selectmany",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/selectmany.ftl\">\r\n        <control-param name=\"options\">\r\n\t\t\tValue1|{$2},Value2|{$2},Value3|{$2}\r\n\t\t</control-param>\r\n\t\t<control-param name=\"style\">width:380px</control-param>\r\n    </control>\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field selectone": {
+		"prefix": "field selectone",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/selectone.ftl\">\r\n        <control-param name=\"options\">\r\n\t\t\tValue1|{$2},Value2|{$2},Value3|{$2}\r\n\t\t</control-param>\r\n\t\t<control-param name=\"style\">width:380px</control-param>\r\n    </control>\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field size": {
+		"prefix": "field size",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/size.ftl\" />\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field textarea": {
+		"prefix": "field textarea",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/textarea.ftl\">\t\t\r\n\t</control>\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field textfield": {
+		"prefix": "field textfield",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" >\r\n\t<control template=\"/org/alfresco/components/form/controls/textfield.ftl\" />\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"field": {
+		"prefix": "field",
+		"body": "\r\n<field id=\"$1:$2\" label-id=\"$3\" />\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"forms hide": {
+		"prefix": "forms hide",
+		"body": "\r\n<hide id=\"string\" [for-mode=\"view|edit|create\"] />\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"forms set 2-column": {
+		"prefix": "forms set 2-column",
+		"body": "\r\n<set id=\"string\" appearance=\"fieldset|panel|bordered-panel|title|whitespace|\" [parent=\"string\"] [label=\"string\"] [label-id=\"key\"] template=\"/org/alfresco/components/form/2-column-set.ftl\" />\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"forms set 3-column": {
+		"prefix": "forms set 3-column",
+		"body": "\r\n<set id=\"string\" appearance=\"fieldset|panel|bordered-panel|title|whitespace|\" [parent=\"string\"] [label=\"string\"] [label-id=\"key\"] template=\"/org/alfresco/components/form/3-column-set.ftl\" />\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"forms set": {
+		"prefix": "forms set",
+		"body": "\r\n<set id=\"string\" appearance=\"fieldset|panel|bordered-panel|title|whitespace|\" [parent=\"string\"] [label=\"string\"] [label-id=\"key\"] [template=\"path\"] />\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"forms field": {
+		"prefix": "forms field",
+		"body": "\r\n<field id=\"string\" [label-id=\"key\"] [label=\"string\"] [description-id=\"key\"] [description=\"string\"] [help=\"string\"] [help-id=\"key\"] [read-only=\"boolean\"] [mandatory=\"boolean\"] [set=\"string\"]>\r\n   <control [template=\"path\"]>\r\n      <control-param name=\"name\">value</control-param>\r\n   </control>\r\n   <constraint-handlers>\r\n      <constraint type=\"id\" validation-handler=\"function\" [message-id=\"string\"] [message=\"string\"] [event=\"string\"] />\r\n   </constraint-handlers>\r\n</field>\r\n",
+		"description": "Form.xml",
+		"scope": "text.xml"
+	},
+	"var": {
+		"prefix": "var",
+		"body": "\\${$1}",
+		"description": "Alfresco freemarker",
+		"scope": ""
+	},
+	"imports": {
+		"prefix": "imports",
+		"body": "\r\n<imports>\r\n\t<import prefix=\"d\" uri=\"http://www.alfresco.org/model/dictionary/1.0\" />\r\n\t<import prefix=\"cm\" uri=\"http://www.alfresco.org/model/content/1.0\" />\r\n\t<import prefix=\"sys\" uri=\"http://www.alfresco.org/model/system/1.0\" />\r\n</imports>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"Í": {
+		"prefix": "Í",
+		"body": "\\u00cd",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"í": {
+		"prefix": "í",
+		"body": "\\u00ed",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"mandatory aspects": {
+		"prefix": "mandatory aspects",
+		"body": "\r\n<mandatory-aspects>\r\n\t<aspect>cm:auditable</aspect>\r\n\t<aspect>cm:author</aspect>\r\n</mandatory-aspects>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"mandatory": {
+		"prefix": "mandatory",
+		"body": "<mandatory>true</mandatory>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"multiple": {
+		"prefix": "multiple",
+		"body": "<multiple>true</multiple>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"namespaces": {
+		"prefix": "namespaces",
+		"body": "\r\n<namespaces>\r\n\t<namespace prefix=\"$1\" uri=\"http://www.org/v3.1/module/$2/model/1.0\" />\r\n</namespaces>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"Ñ": {
+		"prefix": "Ñ",
+		"body": "\\u00d1",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"ñ": {
+		"prefix": "ñ",
+		"body": "\\u00f1",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"Ó": {
+		"prefix": "Ó",
+		"body": "\\u00d3",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"ó": {
+		"prefix": "ó",
+		"body": "\\u00f3",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"propertyBoolean": {
+		"prefix": "propertyBoolean",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>boolean</title>\r\n\t<type>d:boolean</type>\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyContent": {
+		"prefix": "propertyContent",
+		"body": "\r\n<property name=\"$1:text\">\r\n\t<title>Content</title>\r\n\t<type>d:content</type>\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyDate": {
+		"prefix": "propertyDate",
+		"body": "\r\n<property name=\"$1:date\">\r\n\t<title>Date</title>\r\n\t<type>d:date</type>\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyDatetime": {
+		"prefix": "propertyDatetime",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>datetime</title>\r\n\t<type>d:datetime</type>\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyDouble": {
+		"prefix": "propertyDouble",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>double</title>\r\n\t<type>d:double</type>\t\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyFloat": {
+		"prefix": "propertyFloat",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>float</title>\r\n\t<type>d:float</type>\t\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyInt": {
+		"prefix": "propertyInt",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>Int</title>\r\n\t<type>d:int</type>\t\r\n</property>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyList": {
+		"prefix": "propertyList",
+		"body": "\r\n<property name=\"$1:list\">\r\n\t<title>List</title>\r\n\t<type>d:text</type>\r\n\t<constraints>\r\n\t\t<constraint ref=\"$1:x-list\" />\r\n\t</constraints>\r\n</property>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyLong": {
+		"prefix": "propertyLong",
+		"body": "\r\n<property name=\"$1:$2\">\r\n\t<title>Long</title>\r\n\t<type>d:long</type>\t\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyMltext": {
+		"prefix": "propertyMltext",
+		"body": "\r\n<property name=\"$1:text\">\r\n\t<title>Text</title>\r\n\t<type>d:mltext</type>\r\n</property>\r\n\t",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"propertyText": {
+		"prefix": "propertyText",
+		"body": "\r\n<property name=\"$1:text\">\r\n   <title>Text</title>\r\n   <type>d:text</type>\r\n</property>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"sig?": {
+		"prefix": "sig?",
+		"body": "\\u00bf",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"type cmcontent": {
+		"prefix": "type cmcontent",
+		"body": "\r\n<type name=\"$1:name\">\r\n\t<title>Title</title>\r\n\t<parent>cm:content</parent>\r\n\t<properties>\t\t\r\n\t\t<property name=\"$1:text\">\r\n\t\t\t<title>Text</title>\r\n\t\t\t<type>d:text</type>\r\n\t\t</property>\r\n\t</properties>\t\r\n</type>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"type dataListItem": {
+		"prefix": "type dataListItem",
+		"body": "\r\n<type name=\"$1:name\">\r\n\t<title>Title</title>\r\n\t<parent>dl:dataListItem</parent>\r\n\t<properties>\t\t\r\n\t\t<property name=\"$1:text\">\r\n\t\t\t<title>Text</title>\r\n\t\t\t<type>d:text</type>\r\n\t\t</property>\r\n\t</properties>\t\r\n</type>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"type sysbase": {
+		"prefix": "type sysbase",
+		"body": "\r\n<type name=\"$1:$2\">\r\n\t<title>Title</title>\r\n\t<parent>sys:base</parent>\r\n\t<properties>\t\t\r\n\t\t<property name=\"$1:text\">\r\n\t\t\t<title>Text</title>\r\n\t\t\t<type>d:text</type>\r\n\t\t</property>\t\t\t\t\r\n\t</properties>\t\r\n</type>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"types": {
+		"prefix": "types",
+		"body": "\r\n<types>\r\n\t\r\n</types>",
+		"description": "ContenModel.xml",
+		"scope": "text.xml"
+	},
+	"Ú": {
+		"prefix": "Ú",
+		"body": "\\u00da",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"ú": {
+		"prefix": "ú",
+		"body": "\\u00fa",
+		"description": "UTF-8",
+		"scope": ""
+	},
+	"authentication none": {
+		"prefix": "authentication none",
+		"body": "\r\n<authentication>none</authentication>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"authentication user": {
+		"prefix": "authentication user",
+		"body": "\r\n<authentication>user</authentication>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"authentication guest": {
+		"prefix": "authentication guest",
+		"body": "\r\n<authentication>guest</authentication>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"authentication admin": {
+		"prefix": "authentication admin",
+		"body": "\r\n<authentication>admin</authentication>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"authentication runas": {
+		"prefix": "authentication runas",
+		"body": "\r\n<authentication runas=\"admin\">user</authentication>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"cache": {
+		"prefix": "cache",
+		"body": "\r\n<cache>\r\n <never>false</never>\r\n <public>true</public>\r\n <mustrevalidate/>\r\n</cache>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"webscript": {
+		"prefix": "webscript",
+		"body": "\r\n<webscript>\r\n\t<shortname>human readable name for the Web Script</shortname>\r\n\t<description>(optional) is documentation for the Web Script </description>\r\n\t<url>/org/helloworld?to={name}</url>\r\n\t<url>/org/hello/world?to={name}</url>  \r\n   <authentication>user</authentication>\r\n\r\n\t<format default=\"html\">extension</format>   \r\n   <family>name of family</family>\t\r\n</webscript>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"family": {
+		"prefix": "family",
+		"body": "\r\n<family>name of family</family>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format html argument": {
+		"prefix": "format html argument",
+		"body": "<format default=\"html\">argument</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format html extension": {
+		"prefix": "format html extension",
+		"body": "<format default=\"html\">extension</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format html any": {
+		"prefix": "format html any",
+		"body": "<format default=\"html\">any</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format json argument": {
+		"prefix": "format json argument",
+		"body": "<format default=\"json\">argument</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format json extension": {
+		"prefix": "format json extension",
+		"body": "<format default=\"json\">extension</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"format json any": {
+		"prefix": "format json any",
+		"body": "<format default=\"json\">any</format>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle none": {
+		"prefix": "lifecycle none",
+		"body": "\r\n<lifecycle>none</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle sample": {
+		"prefix": "lifecycle sample",
+		"body": "\r\n<lifecycle>sample</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle draft": {
+		"prefix": "lifecycle draft",
+		"body": "\r\n<lifecycle>draft</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle public_api": {
+		"prefix": "lifecycle public_api",
+		"body": "\r\n<lifecycle>public_api</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle draft_public_api": {
+		"prefix": "lifecycle draft_public_api",
+		"body": "\r\n<lifecycle>draft_public_api</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle deprecated": {
+		"prefix": "lifecycle deprecated",
+		"body": "\r\n<lifecycle>deprecated</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"lifecycle internal": {
+		"prefix": "lifecycle internal",
+		"body": "\r\n<lifecycle>internal</lifecycle>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"negotiate": {
+		"prefix": "negotiate",
+		"body": "\r\n<negotiate accept=\"text/html\">html</negotiate>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"result": {
+		"prefix": "result",
+		"body": "<#if error??>{\r\n\t\"error\" : \"\\${error?string}\"\r\n}\r\n<#else>{\r\n\t\"results\" : [<#list results as result>\r\n\t\t{\r\n\t<#-------------- UUID -------------->\r\n\t\t\"uuid\" : \"\\${result.properties['sys:node-uuid']}\",\r\n\t<#-------------- Name -------------->\r\n\t\t<#if result.properties['cm:name']??>\r\n\t\t\t\"name\" : \"\\${result.properties['cm:name']}\",\r\n\t   \t<#else>\r\n\t   \t\"name\" : null,\r\n\t\t</#if>\r\n\t<#-------------- Created -------------->\r\n\t   \t<#if result.properties['cm:created']??>\r\n\t   \t\"created\" : \"\\${result.properties['cm:created']?string(\"dd-MM-yyyy\")}\"\r\n\t   \t<#else>\r\n\t   \t\"created\" : null\r\n\t   \t</#if>\t\r\n\t\t}<#if result_has_next>,</#if></#list>\r\n\t]\r\n}\r\n</#if>",
+		"description": "Alfresco freemarker",
+		"scope": ""
+	},
+	"simple result": {
+		"prefix": "simple result",
+		"body": "<#if error??>{\r\n\t\"error\" : \"\\${error?string}\"\r\n}\r\n<#else>{\r\n\t\"results\" : \"OK\"\r\n}\r\n</#if>",
+		"description": "Alfresco freemarker",
+		"scope": ""
+	},
+	"transaction none": {
+		"prefix": "transaction none",
+		"body": "\r\n<transaction>none</transaction>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"transaction required": {
+		"prefix": "transaction required",
+		"body": "\r\n<transaction>required</transaction>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"transaction requiresnew": {
+		"prefix": "transaction requiresnew",
+		"body": "\r\n<transaction>requiresnew</transaction>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"url arg": {
+		"prefix": "url arg",
+		"body": "<url>/org/helloworld?to={name}&amp;subject={subject}</url>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"url vartemp": {
+		"prefix": "url vartemp",
+		"body": "<url>/org/{userid}</url>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	},
+	"url all": {
+		"prefix": "url all",
+		"body": "<url>/org/{userid}?to={name}&amp;subject={subject}</url>",
+		"description": "Webscript.desc.xml",
+		"scope": "text.xml"
+	}
+}
