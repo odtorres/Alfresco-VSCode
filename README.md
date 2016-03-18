@@ -1,6 +1,9 @@
 # Alfresco-VSCode
 Visual Studio Code extension for Alfresco development
 
+## Usage
+![screencast](http://imgur.com/necHauA)
+
 ## Installation
 
 ### Manually
