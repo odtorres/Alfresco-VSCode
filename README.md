@@ -2,7 +2,7 @@
 Visual Studio Code extension for Alfresco development
 
 ## Usage
-![screencast](http://imgur.com/necHauA)
+![screencast](http://i.imgur.com/necHauA.gif)
 
 ## Installation
 
