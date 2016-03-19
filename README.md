@@ -2,7 +2,13 @@
 Visual Studio Code extension for Alfresco development
 
 ## Usage
+
+###  IntelliSense for Alfresco JavaScript API
 ![screencast](http://i.imgur.com/necHauA.gif)
+
+### Content Model
+![screencast](http://i.imgur.com/iZGrVnE.gif)
+
 
 ## Installation
 
