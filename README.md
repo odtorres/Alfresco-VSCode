@@ -14,7 +14,7 @@ Visual Studio Code extension for Alfresco development
 
 ### Manually
 
- Download the [.zip](https://github.com/odtorres/Alfresco-VSCode/archive/master.zip) file and unzip it into your VS Code local extensions folder.
+ Download the [.zip](https://github.com/odtorres/Alfresco-VSCode/releases/download/v0.1.1/Alfresco-VSCode.rar) file and unzip it into your VS Code local extensions folder.
 
  * Windows: %USERPROFILE% \\.vscode\\extensions
  * Mac/Linux: $HOME/.vscode/extensions
