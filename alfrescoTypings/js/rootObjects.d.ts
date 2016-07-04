@@ -38,6 +38,10 @@ declare const headersM:Array<string>
 declare const session:{}
 /**Object containing information about the URL used to invoke web script */
 declare const url:{}
+/**Root object providing access to console logging facilities for script debugging */
+interface logger{
+    log(params:string):string
+}
 
 // workflow
 /**The description for this in‐flight workflow. */

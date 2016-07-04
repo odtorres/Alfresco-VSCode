@@ -32,3 +32,4 @@ Visual Studio Code extension for Alfresco development
     * Alfresco Build Amp
     * Alfresco HotCopy
     * Alfresco Import Typings
+    * Create Alfresco Project    

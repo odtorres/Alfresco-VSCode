@@ -15,7 +15,11 @@
     "onCommand:extension.BuildJar",
     "onCommand:extension.BuildAmp",
     "onCommand:extension.HotCopy",
-    "onCommand:extension.ImportTypings"
+    "onCommand:extension.ImportTypings",
+    "onCommand:extension.RunJs",
+    "onCommand:extension.CreateProject",
+    "onCommand:extension.CreateModel"
+    
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -35,6 +39,18 @@
       {
         "command": "extension.ImportTypings",
         "title": "Alfresco Import Typings"
+      },
+      {
+        "command": "extension.RunJs",
+        "title": "Alfresco Run Scripts"
+      },
+      {
+        "command": "extension.CreateProject",
+        "title": "Create Alfresco Project"
+      },
+      {
+        "command": "extension.CreateModel",
+        "title": "Create Alfresco Content Model"
       }
     ],
     "snippets": [

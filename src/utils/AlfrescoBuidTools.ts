@@ -30,137 +30,122 @@ export class AlfrescoBuidTools {
 
     }
 
+    public static execute(command, outMessage): void {
+        if (fs.readdirSync(vscode.workspace.rootPath).indexOf("build.xml") != -1) {
+            AlfrescoBuidTools.runInTerminal(command, outMessage, vscode.workspace.rootPath);
+        } else {
+
+            var folderProjects = new Array();
+            fs.readdirSync(vscode.workspace.rootPath).forEach(function (childItemName) {
+                folderProjects.push(childItemName);
+            });
+            vscode.window.showQuickPick(folderProjects)
+                .then(function (val) {
+                    AlfrescoBuidTools.runInTerminal(command, outMessage,path.join(vscode.workspace.rootPath,val) );
+                });
+        }
+    }
+
     public static buildJar(): void {
-        //ant dist-jar
-        //console.log("path")
-        //console.log(vscode.workspace.rootPath)
-        let process = child_process.exec("ant dist-jar", { cwd: vscode.workspace.rootPath });
-        let message: string = "";
-        let error: boolean = false;
-
-        process.on("error", (err: any) => {
-            if (err.code === "ENOENT") {
-                vscode.window.showErrorMessage("error");
-            }
-            error = true;
-        });
-
-        process.stderr.on('data', (data: string) => {
-            console.log("Error:");
-            console.log(data);
-            error = true;
-            if (data.trim() != "")
-                vscode.window.showErrorMessage(data);
-        });
-
-        process.stdout.on('data', (data: string) => {
-            if (data.trim() != "" && data.trim() != "\n")
-                message += data;
-        });
-
-        process.stdout.on("close", (exitCode: number) => {
-            console.log(exitCode)
-            if (!error)
-                vscode.window.showInformationMessage("Build jar. Done!!!");
-            console.log(message);
-        });
+        //"ant dist-jar"
+        AlfrescoBuidTools.execute("ant dist-jar", "Build jar. Done!!!");
     }
 
     public static buildAmp(): void {
-        //ant dist-amp        
-        let process = child_process.exec("ant dist-amp", { cwd: vscode.workspace.rootPath });
-        let message: string = "";
-        let error: boolean = false;
-
-        process.on("error", (err: any) => {
-            if (err.code === "ENOENT") {
-                vscode.window.showErrorMessage("error");
-            }
-            error = true;
-        });
-
-        process.stderr.on('data', (data: string) => {
-            console.log("Error:");
-            console.log(data);
-            error = true;
-            if (data.trim() != "")
-                vscode.window.showErrorMessage(data);
-        });
-
-        process.stdout.on('data', (data: string) => {
-            if (data.trim() != "" && data.trim() != "\n")
-                message += data;
-        });
-
-        process.stdout.on("close", (exitCode: number) => {
-            console.log(exitCode)
-            if (!error)
-                vscode.window.showInformationMessage("Build amp. Done!!!");
-            console.log(message);
-        });
+        //ant dist-amp       
+        AlfrescoBuidTools.execute("ant dist-amp", "Build amp. Done!!!");
     }
 
     public static hotCopy(): void {
         //ant hotcopy-tomcat-zip        
-        let process = child_process.exec("ant hotcopy-tomcat-zip", { cwd: vscode.workspace.rootPath });
-        let message: string = "";
-        let error: boolean = false;
-
-        process.on("error", (err: any) => {
-            if (err.code === "ENOENT") {
-                vscode.window.showErrorMessage("error");
-            }
-            error = true;
-        });
-
-        process.stderr.on('data', (data: string) => {
-            console.log("Error:");
-            console.log(data);
-            error = true;
-            if (data.trim() != "")
-                vscode.window.showErrorMessage(data);
-        });
-
-        process.stdout.on('data', (data: string) => {
-            if (data.trim() != "" && data.trim() != "\n")
-                message += data;
-        });
-
-        process.stdout.on("close", (exitCode: number) => {
-            console.log(exitCode)
-            if (!error)
-                vscode.window.showInformationMessage("Hot copy. Done!!!");
-            console.log(message);
-        });
+        AlfrescoBuidTools.execute("ant hotcopy-tomcat-zip", "Hot copy. Done!!!");
     }
-    
-    public static copyAlfrescoTypings(path){
+
+    public static copyAlfrescoTypings(path) {
         //copy        
         let PLUGIN_TYPE_DEFS_FILENAME = "alfrescoTypings";
-        
-        let PLUGIN_TYPE_DEFS_PATH = path.resolve(path, "..", "..", PLUGIN_TYPE_DEFS_FILENAME);        
-       
-        AlfrescoBuidTools.copyRecursiveSync(PLUGIN_TYPE_DEFS_PATH, vscode.workspace.rootPath);
+
+        let PLUGIN_TYPE_DEFS_PATH = path.resolve(path, "..", "..", PLUGIN_TYPE_DEFS_FILENAME);
+
+        //AlfrescoBuidTools.copyRecursiveSync(PLUGIN_TYPE_DEFS_PATH, vscode.workspace.rootPath);
     }
-    
-    public static copyRecursiveSync(src, dest) {
+
+    public static copyRecursiveSync(src, dest, projectName) {
         var exists = fs.existsSync(src);
         var stats = exists && fs.statSync(src);
         var isDirectory = exists && stats.isDirectory();
         if (exists && isDirectory) {
-            var newFolder = path.join( dest , (path.basename(src) == "alfrescoTypings" ) ? "typings" : path.basename(src) );
-            console.log(newFolder)
-            if(!fs.existsSync(newFolder))
+            var newFolder = "";
+            console.log("dest");
+            console.log(dest);
+            console.log("projectName");
+            console.log(projectName);
+            if (!projectName)
+                newFolder = path.join(dest, (path.basename(src) == "alfrescoTypings") ? "typings" : path.basename(src));
+            else
+                newFolder = path.join(dest, projectName)
+
+            //console.log(newFolder)
+            if (!fs.existsSync(newFolder))
                 fs.mkdirSync(newFolder);
-            fs.readdirSync(src).forEach(function(childItemName) {
-                AlfrescoBuidTools.copyRecursiveSync(path.join(src, childItemName),newFolder);//
+            fs.readdirSync(src).forEach(function (childItemName) {
+                AlfrescoBuidTools.copyRecursiveSync(path.join(src, childItemName), newFolder, false);//
             });
         } else {
             //fs.linkSync(src, dest);
-            AlfrescoBuidTools.copyFile(src,path.join(dest,path.basename(src)));
+            AlfrescoBuidTools.copyFile(src, path.join(dest, path.basename(src)));
         }
     }
-    
+
+    public static renameProjects(src, projectName) {
+        var exists = fs.existsSync(src);
+        var stats = exists && fs.statSync(src);
+        var isDirectory = exists && stats.isDirectory();
+        if (exists && isDirectory) {
+            fs.readdirSync(src).forEach(function (childItemName) {
+
+                fs.rename(
+                    path.resolve(src, childItemName),
+                    path.resolve(src, childItemName.replace("project", projectName)), function (e) {
+                        if (e) throw e;
+                    });
+            });
+        }
+    }
+
+    public static fillProjectFiles(src, projectName) {
+        var exists = fs.existsSync(src);
+        var stats = exists && fs.statSync(src);
+        var isDirectory = exists && stats.isDirectory();
+        if (exists && isDirectory) {
+            fs.readdirSync(src).forEach(function (childItemName) {
+                fs.writeFile(
+                    path.resolve(src, childItemName, 'build.properties'),
+                    'jar.name=' + projectName + '-1.0.jar \namp.name=' + projectName + '-1.0.amp \n' +
+                    'alfresco.tomcat.home= \nalfresco.sdk.dir=',
+                    function (err) {
+                        if (err) throw err;
+                    });
+                fs.writeFile(
+                    path.resolve(src, childItemName, 'file-mapping.properties'),
+                    'include.default=true \n/web/themes=/themes \n/web=/',
+                    function (err) {
+                        if (err) throw err;
+                    });
+                fs.writeFile(
+                    path.resolve(src, childItemName, 'module.properties'),
+                    'module.id=' + projectName + ' \n' +
+                    'module.version=0.1\n' +
+                    'module.title=' + projectName + ' \n' +
+                    'module.description=' + projectName + '\n',
+                    function (err) {
+                        if (err) throw err;
+                    });
+            });
+
+        }
+    }
+
     /**
      *  Helper function check if a file exists.
      */
@@ -173,13 +158,13 @@ export class AlfrescoBuidTools {
             return false;
         }
     }
-    
+
     /**
      *  Helper (synchronous) function to create a directory recursively
      */
     public static makeDirectoryRecursive(dirPath: string): void {
         let parentPath = path.dirname(dirPath);
-        if(!AlfrescoBuidTools.existsSync(parentPath)) {
+        if (!AlfrescoBuidTools.existsSync(parentPath)) {
             AlfrescoBuidTools.makeDirectoryRecursive(parentPath);
         }
 
@@ -189,7 +174,40 @@ export class AlfrescoBuidTools {
     /**
      *  Helper function to asynchronously copy a file
      */
-    public static copyFile(from: string, to:string) {
+    public static copyFile(from: string, to: string) {
         fs.createReadStream(from).pipe(fs.createWriteStream(to));
+    }
+
+    public static runInTerminal(command, outMessage, pathName) {
+        let process = child_process.exec(command, { cwd: pathName });
+        let message: string = "";
+        let error: boolean = false;
+        var myOutputChannel = vscode.window.createOutputChannel('AlfrescoChannel');
+
+        myOutputChannel.show();
+
+        process.on("error", (err: any) => {
+            if (err.code === "ENOENT") {
+                myOutputChannel.append("Error: " + err);
+            }
+            error = true;
+        });
+
+        process.stderr.on('data', (data: string) => {
+            error = true;
+            if (data.trim() != "")
+                myOutputChannel.append(data);
+        });
+
+        process.stdout.on('data', (data: string) => {
+            if (data.trim() != "" && data.trim() != "\n")
+                message += data;
+        });
+
+        process.stdout.on("close", (exitCode: number) => {
+            if (!error)
+               vscode.window.showInformationMessage(outMessage);
+            myOutputChannel.append(message);
+        });
     }
 }

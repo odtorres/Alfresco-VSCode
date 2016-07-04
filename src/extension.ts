@@ -14,7 +14,7 @@
    You should have received a copy of the GNU Affero General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-'use strict';
+//'use strict';
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as child_process from 'child_process';
@@ -22,6 +22,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as vscode from 'vscode';
 import {AlfrescoBuidTools} from './utils/AlfrescoBuidTools';
+//import {search} from './libs/alfresco-mock';
 //import {ncp} from '../node_modules/ncp/bin/ncp';
 
 // this method is called when your extension is activated
@@ -47,17 +48,71 @@ export function activate(context: vscode.ExtensionContext) {
     let disposableIt = vscode.commands.registerCommand('extension.ImportTypings', () => {
         //copy        
         let PLUGIN_TYPE_DEFS_FILENAME = "alfrescoTypings";
+
+        let PLUGIN_TYPE_DEFS_PATH = path.resolve(__dirname, "..", "..", PLUGIN_TYPE_DEFS_FILENAME);
+
+        AlfrescoBuidTools.copyRecursiveSync(PLUGIN_TYPE_DEFS_PATH, vscode.workspace.rootPath,false);
+
+    });
+    let disposableRj = vscode.commands.registerCommand('extension.RunJs', () => {
         
-        let PLUGIN_TYPE_DEFS_PATH = path.resolve(__dirname, "..", "..", PLUGIN_TYPE_DEFS_FILENAME);        
-        
-        AlfrescoBuidTools.copyRecursiveSync(PLUGIN_TYPE_DEFS_PATH, vscode.workspace.rootPath);
-        
+        fs.readFile(path.join(__dirname, "..", "..", "src", "libs", "alfresco-mock.js"), 'utf8', function (err, data) {
+            if (err) throw err;
+            //console.log(data)
+            let output = vscode.window.createOutputChannel("Alfresco Run output");
+            try {
+                output.clear();
+                output.show();
+                output.append(eval(data + vscode.window.activeTextEditor.document.getText()))
+                //eval(data+vscode.window.activeTextEditor.document.getText());
+
+
+            } catch (e) {
+
+                output.show();
+                output.append(e.message)
+                vscode.window.showErrorMessage("There is an error in your code")
+            }
+        });
+        console.log(path.join(__dirname, "..", "..", "src", "libs", "alfresco-mock.js"))
+
+
+    });
+    let disposableCp = vscode.commands.registerCommand('extension.CreateProject', () => {
+        //copy
+        vscode.window.showInputBox({ prompt: 'What is the name of the project?' })
+            .then(function (val) {
+                //vscode.window.showInformationMessage('Your input was ' + val)
+                let PLUGIN_TYPE_DEFS_FILENAME = "alfrescoProject";
+
+                let PLUGIN_TYPE_DEFS_PATH = path.resolve(__dirname, "..", "..", PLUGIN_TYPE_DEFS_FILENAME);
+
+                AlfrescoBuidTools.copyRecursiveSync(PLUGIN_TYPE_DEFS_PATH, vscode.workspace.rootPath,val);
+                setTimeout(function () {
+                     AlfrescoBuidTools.renameProjects(path.resolve(vscode.workspace.rootPath, val),val);
+                },500);
+               setTimeout(function () {
+                     AlfrescoBuidTools.fillProjectFiles(path.resolve(vscode.workspace.rootPath, val),val);
+                },1000);
+            });
+    });
+
+    let disposableCm = vscode.commands.registerCommand('extension.CreateModel', () => {
+        //copy
+        vscode.window.showInputBox({ prompt: 'What is the name of the content model?' })
+            .then(function (val) {
+                //vscode.window.showInformationMessage('Your input was ' + val)
+                
+            });
     });
 
     context.subscriptions.push(disposableBj);
     context.subscriptions.push(disposableBa);
     context.subscriptions.push(disposableHc);
     context.subscriptions.push(disposableIt);
+    context.subscriptions.push(disposableRj);
+    context.subscriptions.push(disposableCp);
+    context.subscriptions.push(disposableCm);
 }
 
 // this method is called when your extension is deactivated
